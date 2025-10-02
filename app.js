@@ -23,7 +23,7 @@ import User from "./models/user.js";
 
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT||8080;
 
 
 const MONGO_URL= "mongodb://127.0.0.1:27017/wanderLust";
@@ -106,6 +106,11 @@ app.use((req, res, next) => {
 app.use("/listings", listings)
 app.use("/listings/:id/reviews", reviews);
 app.use("/", user);
+
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 
 app.use((req, res, next) => {

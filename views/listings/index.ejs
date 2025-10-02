@@ -1,0 +1,89 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+
+  <% 
+    const categories = [
+      { key: "trending", icon: "fa-fire", label: "Trending" },
+      { key: "rooms", icon: "fa-bed", label: "Rooms" },
+      { key: "cities", icon: "fa-city", label: "Cities" },
+      { key: "mountains", icon: "fa-mountain", label: "Mountains" },
+      { key: "arctic", icon: "fa-snowflake", label: "Arctic" },
+      { key: "luxury", icon: "fa-hotel", label: "Luxury Villas" },
+      { key: "beach", icon: "fa-umbrella-beach", label: "Beach" },
+      { key: "lakefront", icon: "fa-water", label: "Lakefront" },
+      { key: "pools", icon: "fa-person-swimming", label: "Amazing Pools" },
+      { key: "camping", icon: "fa-campground", label: "Camping" },
+      { key: "farm", icon: "fa-tractor", label: "Farms" }
+    ];
+  %>
+
+  <!-- Desktop Filters -->
+  <div id="filters" class="d-none d-md-flex flex-wrap justify-content-center align-items-center">
+    <% categories.forEach(cat => { %>
+      <a href="/listings?category=<%= cat.key %>" class="filter">
+        <div><i class="fa-solid <%= cat.icon %>"></i></div>
+        <p><%= cat.label %></p>
+      </a>
+    <% }) %>
+
+    <!-- Switch -->
+    <div class="filter tax-toggle ms-3">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+        <label class="form-check-label" for="switchCheckDefault">All inclusive</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div class="dropdown d-md-none text-center my-2">
+    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="filterMenu" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i> Categories
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="filterMenu">
+      <% categories.forEach(cat => { %>
+        <li>
+          <a class="dropdown-item" href="/listings?category=<%= cat.key %>">
+            <i class="fa-solid <%= cat.icon %>"></i> <%= cat.label %>
+          </a>
+        </li>
+      <% }) %>
+      <li>
+        <div class="dropdown-item">
+          <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckMobile">
+            <label class="form-check-label" for="switchCheckMobile">All inclusive</label>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Listings Cards -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for (let listings of allListings) { %>
+      <a href="/listings/<%= listings._id %>" class="listing-link">
+        <div class="card col listing-card">
+          <img 
+            src="<%= listings.image.url %>" 
+            class="card-img-top" 
+            alt="Listing image" 
+            style="height: 20rem;"
+          />
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listings.title %></b><br />
+              <span class="listing-price" data-base="<%= listings.price %>">
+                &#8377;<%= listings.price.toLocaleString("en-IN") %>
+              </span> /night
+              <i class="tax-info">&nbsp;&nbsp;+18% GST</i>
+            </p>
+          </div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+
+</body>

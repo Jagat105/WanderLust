@@ -1,0 +1,119 @@
+<% layout("layouts/boilerplate") %>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br /><br />
+      
+      <h1>Create a New Listing</h1>
+    
+      <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+        <fieldset>
+          <legend>Listing Details</legend>
+
+          <!-- Title -->
+          <div class="mb-3">
+            <label for="title" class="form-label">Title:</label><br>
+            <input 
+              type="text" 
+              id="title" 
+              name="listing[title]" 
+              placeholder="🏡 Enter a catchy title" 
+              class="form-control" 
+              required>
+            <div class="valid-feedback">Looks Good!</div>
+            <div class="invalid-feedback">Let’s make your listing shine — add a catchy title! ✨</div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label><br>
+            <textarea 
+              id="description" 
+              name="listing[description]" 
+              placeholder="Enter description" 
+              class="form-control"
+              required></textarea>
+            <div class="invalid-feedback">Travelers love details — please add a short description (min 20 characters). 🧭</div>
+          </div>
+          
+          <!-- Category -->
+          <div class="mb-3">
+            <label for="category" class="form-label">Category:</label><br>
+            <select id="category" name="listing[category]" class="form-select" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="trending">Trending</option>
+              <option value="rooms">Rooms</option>
+              <option value="cities">Cities</option>
+              <option value="mountains">Mountains</option>
+              <option value="arctic">Arctic</option>
+              <option value="luxury">Luxury Villas</option>
+              <option value="beach">Beach</option>
+              <option value="lakefront">Lakefront</option>
+              <option value="pools">Amazing Pools</option>
+              <option value="camping">Camping</option>
+              <option value="farm">Farms</option>
+            </select>
+            <div class="invalid-feedback">Please select a category for your listing. 🏡</div>
+          </div>
+
+          <!-- Image -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload Listing image:</label><br>
+            <input 
+              type="file" 
+              id="image" 
+              name="listing[image]"  
+              class="form-control">
+          </div>
+
+          <!-- Price and Country -->
+          <div class="row">
+            <div class="mb-3 col-md-4">
+              <label for="price" class="form-label">Price (INR):</label><br>
+              <input 
+                type="number" 
+                id="price" 
+                name="listing[price]" 
+                placeholder="1200" 
+                class="form-control" 
+                min="1200" 
+                required>
+              <div class="invalid-feedback">Looks low — price should be at least ₹1200. 💰</div>
+            </div>
+
+            <div class="mb-3 col-md-8">
+              <label for="country" class="form-label">Country:</label><br>
+              <input 
+                type="text" 
+                id="country" 
+                name="listing[country]" 
+                placeholder="India" 
+                class="form-control" 
+                required>
+              <div class="invalid-feedback">Don't forget the country — it helps travelers find you 🌍</div>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="mb-3">
+            <label for="location" class="form-label">Location:</label><br>
+            <input 
+              type="text" 
+              id="location" 
+              name="listing[location]" 
+              placeholder="Enter location" 
+              class="form-control" 
+              required>
+            <div class="invalid-feedback">Give a specific location (city, area or landmark) so guests can find you easily. 📍</div>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-dark">Add Listing</button>
+          <br /><br />
+        </fieldset>
+      </form>
+
+    </div>
+  </div>
+</body>
+

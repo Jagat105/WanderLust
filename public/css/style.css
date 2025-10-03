@@ -191,5 +191,11 @@ body {
 }
 
 
-
+@media (min-width: 768px) {
+  .navbar .mx-auto {
+    position: absolute;
+    left: 44.7%;
+    transform: translateX(-50%);
+  }
+}
 

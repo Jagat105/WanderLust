@@ -216,8 +216,9 @@ body {
         align-items: center;
     }
     
-    .btns a, .btns form button {
-        width: 100% !important;   
+    .btns a, .btns form button {  
+        width: auto !important;       
+        min-width: 100px;             
         margin-left: 0 !important;
         text-align: center;
     }

@@ -199,3 +199,68 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+    #map {
+        width: 100% !important;  
+        height: 250px;           
+    }
+
+    .listing-card {
+        width: 100% !important;
+        margin: 0 auto 1rem auto; 
+    }
+
+    .btns {
+        flex-direction: column;   
+        gap: 0.5rem;              
+        align-items: center;
+    }
+    
+    .btns a, .btns form button {
+        width: 100% !important;   
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .row > .card {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-bottom: 1rem;
+    }
+
+    .col-8.offset-3, .col-6.offset-3, .col-5.ms-3 {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .row.mt-3 {
+        margin-top: 1rem !important;
+        padding: 0 0.5rem;
+    }
+
+    .card-text, h3, h4 {
+        font-size: 0.9rem;
+    }
+
+    .leaflet-popup-content-wrapper {
+        max-width: 90% !important;
+        font-size: 0.8rem !important;
+        padding: 0.3rem 0.5rem !important;
+    }
+
+    .leaflet-popup-content h4,
+    .leaflet-popup-content p {
+        font-size: 0.8rem !important;
+        margin: 0.2rem 0 !important;
+    }
+
+    .leaflet-control-zoom {
+        position: absolute !important;
+        top: 0.5rem !important;
+        left: 0.5rem !important;
+        z-index: 1000 !important;
+    }
+}
+
+
+
